@@ -2,6 +2,16 @@ body {
     background-color: #091f2f;
 
 }
+@font-face {
+    font-family: 'HindSiliguri-Medium';
+    src: url('../fonts/HindSiliguri-Medium') format('truetype');
+}
+
+h1 {
+    font-family: HindSiliguri-Medium, sans-serif;
+    font-size: xx-large;
+    color: #205903;
+}
 
 .grid-container {
     display: grid;
@@ -14,6 +24,7 @@ body {
   
 .grid_header {
     grid-column: span 3;
+    padding-bottom: 50px;
 }
 
 .item2 {
