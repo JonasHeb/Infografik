@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dot Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      position: relative;
+      width: 80%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dots-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: top;
+      overflow: hidden;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #3498db;
+      position: absolute;
+      opacity: 0%;
+      animation: orbitLow 25s infinite ease-in-out;
+    }
+
+    @keyframes orbitLow {
+      0% {
+        opacity: 0;
+        transform: translate(0, var(--start-y));
+      }
+      25% {
+        opacity: 100%;
+      }
+      50% {
+        opacity: 0;
+        transform: translate(800px, var(--end-y));
+      }
+      100% {
+        opacity: 0;
+        transform: translate(0, var(--start-y));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dots-wrapper" id="dots-wrapper"></div>
+  </div>
+  <label for="dot-count">Number of Dots:</label>
+  <input type="range" id="dot-count" min="0" max="1000" value="10">
+  
+  <script>
+    const slider = document.getElementById("dot-count");
+    const wrapper = document.getElementById("dots-wrapper");
+
+    function createDots(count) {
+      wrapper.innerHTML = ''; // Clear previous dots
+
+      for (let i = 0; i < count; i++) {
+        // Create the dot element
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        
+        // Set random start and end Y positions within a range of 100 pixels
+        const startY = Math.random() * 300; // Random start Y position
+        const endY = Math.random() * 300;   // Random end Y position
+
+        // Apply the random Y positions to the dot using CSS variables
+        dot.style.setProperty('--start-y', `${startY}px`);
+        dot.style.setProperty('--end-y', `${endY}px`);
+        
+        // Stagger the animation with a slight delay
+        dot.style.animationDelay = `${i * 0.53487}s`; 
+        
+        // Append the dot to the wrapper
+        wrapper.appendChild(dot);
+      }
+    }
+
+    slider.addEventListener("input", (event) => {
+      const count = event.target.value;
+      createDots(count);
+    });
+
+    // Initial setup
+    createDots(slider.value);
+  </script>
+</body>
+</html>
