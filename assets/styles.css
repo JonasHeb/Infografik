@@ -63,7 +63,7 @@ h2 {
     position: sticky; /* Ensures fixed position relative to viewport */
     top: 0; /* Fixes it to the top of the viewport */
     height: 100vh; /* Matches viewport height */
-    overflow: hidden; /* No scrolling here */
+ /* No scrolling here */
 }
 
 .container_animation {

@@ -41,7 +41,7 @@ const sectionSettings = {
     section_2: { dots: 100, delay: 0.1 }, // 100 dots, 0.03s delay
     section_3: { dots: 200, delay: 0.02 }, // 200 dots, 0.02s delay
     section_4: { dots: 500, delay: 0.01 }, // 500 dots, 0.01s delay
-    section_5: { dots: 1000, delay: 0.09 }, // 1000 dots, 0.005s delay
+    section_5: { dots: 100000, delay: 0.09 }, // 1000 dots, 0.005s delay
 };
 
 // Initialize IntersectionObserver
