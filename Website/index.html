@@ -3,29 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
     <link href="assets/styles.css" rel="stylesheet">
     <script src="assets/app.js" defer></script>
-
-    <title>Die Vermüllung des Weltrraums</title>
+    <title>Die Vermüllung des Weltraums</title>
 </head>
 <body>
     <div class="grid_container">
+        <!-- Left scrollable content -->
         <div class="container_info">
-            <div class="header_info">
-                <h2>Gefahren des Weltraumschrottes</h2>
+            <div class="timeline"></div>
+            <div class="section_info" id="section_1">
+                <div class="section_content">
+                    <h2>Gefahren des Weltraumschrottes</h2>
                 </div>
-            <h2>Verdeutlichung Orbitaler Abstände</h2>
+                <a class="navigation_arrows" href="#section_2">
+                    <img class="navigation_arrow_down" src="../Website/assets/SVG/arrows.svg">
+                </a>
+            </div>
+            <div class="section_info" id="section_2">
+                <a class="navigation_arrows" href="#section_1">
+                    <img class="navigation_arrow_up" src="../Website/assets/SVG/arrows.svg">
+                </a>
+                <div class="section_content">
+                    <h2>Gefahren des Weltraumschrottes</h2>
+                </div>
+                <a class="navigation_arrows" href="#section_3">
+                    <img class="navigation_arrow_down" src="../Website/assets/SVG/arrows.svg">
+                </a>
+            </div>
+            <div class="section_info" id="section_3">
+                <a class="navigation_arrows" href="#section_2">
+                    <img class="navigation_arrow_up" src="../Website/assets/SVG/arrows.svg">
+                </a>
+                <div class="section_content">
+                    <h2>Gefahren des Weltraumschrottes</h2>
+                </div>
+                <a class="navigation_arrows" href="#section_4">
+                    <img class="navigation_arrow_down" src="../Website/assets/SVG/arrows.svg">
+                </a>       
+            </div>
+            <div class="section_info" id="section_4">
+                <a class="navigation_arrows" href="#section_3">
+                    <img class="navigation_arrow_up" src="../Website/assets/SVG/arrows.svg">
+                </a>
+                <div class="section_content">
+                    <h2>Gefahren des Weltraumschrottes</h2>
+                </div>
+                <a class="navigation_arrows" href="#section_5">
+                    <img class="navigation_arrow_down" src="../Website/assets/SVG/arrows.svg">
+                </a>
+            </div>
+            <div class="section_info" id="section_5">
+                <a class="navigation_arrows" href="#section_4">
+                    <img class="navigation_arrow_up" src="../Website/assets/SVG/arrows.svg">
+                </a>
+                <div class="section_content">
+                    <h2>Gefahren des Weltraumschrottes</h2>
+                </div>
+            </div>
         </div>
+        <!-- Right fixed content -->
         <div class="container_globe">
             <div class="container_animation">
                 <div class="dots-wrapper" id="dots-wrapper"></div>
             </div>
-            <div class="slider">
-                <label for="dot-count">Number of Dots:</label>
-                <input type="range" id="dot-count" min="0" max="5000" value="10">
-            </div>
         </div>
     </div>
-
 </body>
+</html>
