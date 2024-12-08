@@ -3,113 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dot Animation</title>
+  <title>Smooth Scroll with Overflow Hidden</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
       height: 100vh;
-      background-color: #f0f0f0;
+      overflow: hidden; /* Hide overflowing content */
     }
 
     .container {
-      position: relative;
-      width: 80%;
-      height: 500px;
+      display: flex;
+      flex-direction: column;
+      height: 300vh; /* Simulate multiple sections */
+    }
+
+    section {
+      height: 100vh; /* Each section fills the viewport */
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 2rem;
+      transition: transform 0.5s ease; /* Smooth transform for transitions */
     }
 
-    .dots-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: top;
-      overflow: hidden;
+    section:nth-child(odd) {
+      background: lightblue;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #3498db;
-      position: absolute;
-      opacity: 0%;
-      animation: orbitLow 25s infinite ease-in-out;
+    section:nth-child(even) {
+      background: lightcoral;
     }
 
-    @keyframes orbitLow {
-      0% {
-        opacity: 0;
-        transform: translate(0, var(--start-y));
-      }
-      25% {
-        opacity: 100%;
-      }
-      50% {
-        opacity: 0;
-        transform: translate(800px, var(--end-y));
-      }
-      100% {
-        opacity: 0;
-        transform: translate(0, var(--start-y));
-      }
+    nav {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+
+    nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: black;
+      background: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="#section3">Section 3</a>
+  </nav>
+
   <div class="container">
-    <div class="dots-wrapper" id="dots-wrapper"></div>
+    <section id="section1">Section 1</section>
+    <section id="section2">Section 2</section>
+    <section id="section3">Section 3</section>
   </div>
-  <label for="dot-count">Number of Dots:</label>
-  <input type="range" id="dot-count" min="0" max="1000" value="10">
-  
+
   <script>
-    const slider = document.getElementById("dot-count");
-    const wrapper = document.getElementById("dots-wrapper");
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default jump behavior
 
-    function createDots(count) {
-      wrapper.innerHTML = ''; // Clear previous dots
+        // Get the target section
+        const targetId = event.target.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
 
-      for (let i = 0; i < count; i++) {
-        // Create the dot element
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        
-        // Set random start and end Y positions within a range of 100 pixels
-        const startY = Math.random() * 300; // Random start Y position
-        const endY = Math.random() * 300;   // Random end Y position
-
-        // Apply the random Y positions to the dot using CSS variables
-        dot.style.setProperty('--start-y', `${startY}px`);
-        dot.style.setProperty('--end-y', `${endY}px`);
-        
-        // Stagger the animation with a slight delay
-        dot.style.animationDelay = `${i * 0.53487}s`; 
-        
-        // Append the dot to the wrapper
-        wrapper.appendChild(dot);
-      }
-    }
-
-    slider.addEventListener("input", (event) => {
-      const count = event.target.value;
-      createDots(count);
+        // Scroll to the target section
+        const topOffset = targetSection.offsetTop;
+        window.scrollTo({
+          top: topOffset,
+          behavior: 'smooth' // Smooth scrolling
+        });
+      });
     });
-
-    // Initial setup
-    createDots(slider.value);
   </script>
 </body>
 </html>

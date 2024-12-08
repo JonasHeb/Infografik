@@ -20,13 +20,21 @@ h2 {
 }
 
 .grid_container {
-    display: grid;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 50px;
+    box-sizing: border-box;
+}
+.container_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px;
 }
 
 .container_globe { 
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -34,12 +42,12 @@ h2 {
 }
 
 .container_animation {
-    width: 500px;
-    height: 500px;
-    background-image: url('../assets/images/Blank_globe.svg');
+    width: 800px;
+    height: 800px;
+    background-image: url('../assets/images/detailed_globe.png');
     background-repeat: no-repeat;
-    background-size: 450px 450px;
-    background-position: center;
+    background-size: 700px 700px;
+    background-position: right;
 }
 
 .slider {
@@ -47,20 +55,20 @@ h2 {
 }
 
 .dots-wrapper {
-    width: 500px;
+    width: 100%;
     height: 500px;
     display: flex;
     justify-content: flex-start;
     position: relative;
-    top: 100px;
+    top: 150px;
     overflow: hidden;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background-color: #3498db;
+    background-color: #ffffff;
     position: absolute;
     opacity: 0%;
     animation: orbitLow 25s infinite ease-in-out;
@@ -76,7 +84,7 @@ h2 {
     }
     50% {
         opacity: 0;
-        transform: translate(500px, var(--end-y));
+        transform: translate(800px, var(--end-y));
     }
     100% {
         opacity: 0;
