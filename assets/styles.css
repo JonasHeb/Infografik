@@ -21,9 +21,21 @@ h2 {
 @media screen and (max-width: 768px) {
     .grid_container {
         flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 10px;
     }
     .container_globe {
         order: -1;
+    }
+    .section_info {
+        height: 50vh;
+    }
+    .container_info {
+        width: 100%;
+    }
+    .section_content {
+        height: 50vh;
     }
 }
 
