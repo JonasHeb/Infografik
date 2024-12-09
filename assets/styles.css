@@ -1,12 +1,40 @@
+@font-face {
+    font-family: 'HindSiliguri-SemiBold';
+    src: url('fonts/HindSiliguri-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'HindSiliguri-Regular';
+    src: url('fonts/HindSiliguri-Regular.ttf');
+}
+@font-face {
+    font-family: 'HindSiliguri-Medium';
+    src: url('fonts/HindSiliguri-Medium.ttf');
+}
 body {
     background-color: #000;
     margin: 0;
     overflow: hidden; /* Prevent page-level scrolling */
     display: flex;
+    align-items: center;
+    font-family: 'HindSiliguri-Regular', sans-serif;
+
 }
 h2 {
     font-size: xx-large;
+    font-family: 'HindSiliguri-SemiBold', sans-serif;
     color: #ffffff;
+}
+h3 {
+    font-size: large;
+    font-family: 'HindSiliguri-Medium', sans-serif;
+    color: #ffffff;
+}
+
+#year_display {
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    height: fit-content;
 }
 
 .grid_container {
@@ -25,17 +53,23 @@ h2 {
         justify-content: space-between;
         padding: 0px 10px;
     }
-    .container_globe {
+    .container_right {
         order: -1;
+        height: 50vh !important;
+        width: 100% !important;
+        flex-shrink: 0;
     }
     .section_info {
         height: 50vh;
     }
     .container_info {
-        width: 100%;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        height: 300vh !important;
+
     }
     .section_content {
-        height: 50vh;
+        height: auto !important;
     }
 }
 
@@ -62,19 +96,47 @@ h2 {
 .section_content {
     display: flex;
     height: 100%;
+    width: 100%;
     align-items: flex-start;
+    flex-direction: column;
+    padding: 0px 20px;
+    box-sizing: border-box;
+}
+
+.container_diagramme {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container_diagram {
+    width: 45%;
+    height: auto;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Right container: Fixed */
+.container_right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    width: 50%;
+    position: sticky;
+    top: 0;
+}
 .container_globe {
-    width: 50%; /*960px*/
+    width: 100%; /*960px*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: sticky; /* Ensures fixed position relative to viewport */
     top: 0; /* Fixes it to the top of the viewport */
-    height: 100vh; /* Matches viewport height */
+    height: 100%; /* Matches viewport height */
  /* No scrolling here */
 }
 

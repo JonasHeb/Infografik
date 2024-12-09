@@ -11,7 +11,6 @@
     <div class="grid_container">
         <!-- Left scrollable content -->
         <div class="container_info">
-            <div class="timeline"></div>
             <div class="section_info" id="section_1">
                 <div class="section_content">
                     <h2>Gefahren des Weltraumschrottes</h2>
@@ -25,7 +24,17 @@
                     <img class="navigation_arrow_up" src="assets/SVG/arrows.svg">
                 </a>
                 <div class="section_content">
-                    <h2>Gefahren des Weltraumschrottes</h2>
+                    <h2>Verteilung der aktiven Satelliten nach Ländern</h2>
+                    <div class="container_diagramme">
+                        <div class="container_diagram">
+                            <h3>Aktive Satelliten nach Ländern:</h3>
+                            <img class="img_diagram" src="assets/SVG/Diagramm_Laenderverteilung.svg" alt="Diagramm Länderverteilung">
+                        </div>
+                        <div class="container_diagram">
+                            <h3>Aktive Satelliten nach Einsatzgebiet:</h3>
+                            <img class="img_diagram" src="assets/SVG/Diagramm_Laenderverteilung.svg" alt="Diagramm Länderverteilung">
+                        </div>
+                    </div>
                 </div>
                 <a class="navigation_arrows" href="#section_3">
                     <img class="navigation_arrow_down" src="assets/SVG/arrows.svg">
@@ -63,9 +72,12 @@
             </div>
         </div>
         <!-- Right fixed content -->
-        <div class="container_globe">
-            <div class="container_animation">
-                <div class="dots-wrapper" id="dots-wrapper"></div>
+        <div class="container_right">
+            <div class="container_globe">
+                <h2 id="year_display">2024</h2>
+                <div class="container_animation">
+                    <div class="dots-wrapper" id="dots-wrapper"></div>
+                </div>
             </div>
         </div>
     </div>

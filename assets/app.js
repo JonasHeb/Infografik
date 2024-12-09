@@ -35,13 +35,39 @@ function createDots(count, delay) {
     }
 }
 
+// Function to animate numbers
+function animateNumberDisplay(element, start, end, duration) {
+    const startTime = performance.now();
+
+    function updateNumber(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1); // Cap progress at 1 (100%)
+
+        // Calculate the current value
+        const currentValue = Math.round(start + (end - start) * progress);
+
+        // Update the element's text
+        element.textContent = currentValue;
+
+        // Continue animation if not done
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        }
+    }
+
+    // Start the animation
+    requestAnimationFrame(updateNumber);
+}
+
+const yearDisplay = document.getElementById('year_display'); // Corrected ID
+
 // Section-to-dot and delay mapping
 const sectionSettings = {
-    section_1: { dots: 50, delay: 0.5 }, // 50 dots, 0.05s delay
-    section_2: { dots: 100, delay: 0.1 }, // 100 dots, 0.03s delay
-    section_3: { dots: 200, delay: 0.02 }, // 200 dots, 0.02s delay
-    section_4: { dots: 500, delay: 0.01 }, // 500 dots, 0.01s delay
-    section_5: { dots: 10000, delay: 0.09 }, // 1000 dots, 0.005s delay
+    section_1: { dots: 1, delay: 0.5, year: 1958 },
+    section_2: { dots: 500, delay: 0.1, year: 1985 },
+    section_3: { dots: 1000, delay: 0.04, year: 2008 },
+    section_4: { dots: 2000, delay: 0.02, year: 2019 },
+    section_5: { dots: 3500, delay: 0.008, year: 2024 },
 };
 
 // Initialize IntersectionObserver
@@ -50,7 +76,13 @@ const observer = new IntersectionObserver(
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.id;
-                const settings = sectionSettings[sectionId] || { dots: 0, delay: 0 }; // Default values
+                const settings = sectionSettings[sectionId] || { dots: 0, delay: 0, year: 0 };
+
+                // Animate year display
+                const currentYear = parseInt(yearDisplay.textContent, 10) || 0;
+                animateNumberDisplay(yearDisplay, currentYear, settings.year, 1000); // Duration is 1000ms (1 second)
+
+                // Update dots
                 createDots(settings.dots, settings.delay);
             }
         });
@@ -63,10 +95,10 @@ document.querySelectorAll('.section_info').forEach((section) => {
     observer.observe(section);
 });
 
-// Initial setup (ensure the first section is rendered correctly)
+// Initial setup
 const initialSettings = sectionSettings['section_1'];
+animateNumberDisplay(yearDisplay, 0, initialSettings.year, 1000); // Start from 0
 createDots(initialSettings.dots, initialSettings.delay);
-
 
 
 // Select all navigation arrow links
