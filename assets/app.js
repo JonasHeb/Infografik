@@ -36,7 +36,7 @@ function createDots(count, delay) {
 }
 
 // Function to animate numbers
-function animateNumberDisplay(element, start, end, duration) {
+function animateNumberDisplay(element, start, end, duration, callback) {
     const startTime = performance.now();
 
     function updateNumber(currentTime) {
@@ -52,6 +52,9 @@ function animateNumberDisplay(element, start, end, duration) {
         // Continue animation if not done
         if (progress < 1) {
             requestAnimationFrame(updateNumber);
+        } else if (callback) {
+            // Execute callback after the animation finishes
+            callback();
         }
     }
 
@@ -59,7 +62,29 @@ function animateNumberDisplay(element, start, end, duration) {
     requestAnimationFrame(updateNumber);
 }
 
-const yearDisplay = document.getElementById('year_display'); // Corrected ID
+// Function to create dots with custom delay
+function createDots(count, delay) {
+    const wrapper = document.getElementById("dots-wrapper");
+    const wrapperHeight = Math.round(wrapper.offsetWidth * 0.63);
+    wrapper.innerHTML = ''; // Clear previous dots
+
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+
+        // Set random start and end Y positions
+        const startY = Math.random() * wrapperHeight + (wrapperHeight * 0.2);
+        const endY = Math.random() * wrapperHeight + (wrapperHeight * 0.2);
+
+        dot.style.setProperty('--start-y', `${startY}px`);
+        dot.style.setProperty('--end-y', `${endY}px`);
+
+        // Adjust animation delay for each dot
+        dot.style.animationDelay = `${i * delay}s`;
+
+        wrapper.appendChild(dot);
+    }
+}
 
 // Section-to-dot and delay mapping
 const sectionSettings = {
@@ -69,6 +94,9 @@ const sectionSettings = {
     section_4: { dots: 2000, delay: 0.02, year: 2019 },
     section_5: { dots: 3500, delay: 0.008, year: 2024 },
 };
+
+const yearDisplay = document.getElementById('year_display');
+const countDisplay = document.getElementById('count_display');
 
 // Initialize IntersectionObserver
 const observer = new IntersectionObserver(
@@ -80,9 +108,13 @@ const observer = new IntersectionObserver(
 
                 // Animate year display
                 const currentYear = parseInt(yearDisplay.textContent, 10) || 0;
-                animateNumberDisplay(yearDisplay, currentYear, settings.year, 1000); // Duration is 1000ms (1 second)
+                animateNumberDisplay(yearDisplay, currentYear, settings.year, 1000);
 
-                // Update dots
+                // Animate count display
+                const currentDots = parseInt(countDisplay.textContent, 10) || 0;
+                animateNumberDisplay(countDisplay, currentDots, settings.dots, 1000);
+
+                // Update dots after animation
                 createDots(settings.dots, settings.delay);
             }
         });
@@ -97,7 +129,8 @@ document.querySelectorAll('.section_info').forEach((section) => {
 
 // Initial setup
 const initialSettings = sectionSettings['section_1'];
-animateNumberDisplay(yearDisplay, 0, initialSettings.year, 1000); // Start from 0
+animateNumberDisplay(yearDisplay, 0, initialSettings.year, 1000);
+animateNumberDisplay(countDisplay, 0, initialSettings.dots, 1000);
 createDots(initialSettings.dots, initialSettings.delay);
 
 
