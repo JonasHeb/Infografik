@@ -67,15 +67,16 @@ h3 {
     .section_info {
         height: 50vh !important;
         width: auto !important;
+        flex-shrink: 0 !important;
     }
     .container_info {
         width: 100% !important;
         flex-shrink: 0 !important;
-        height: 50% !important;
+        height: 50vh !important;
 
     }
     .container_diagramme {
-        height: 100% !important;
+        height: auto !important;
         width: auto !important;
     }
     .section_content {
@@ -83,10 +84,10 @@ h3 {
         width: auto !important;
     }
     h1 {
-        font-size: 50px !important;
-    }
+        font-size: 30px !important;
+    } 
     .container_globe {
-        height: 50%;
+        height: 50vh;
     }
     h2 {
         font-size: 20px !important;
