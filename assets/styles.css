@@ -13,7 +13,7 @@
 body {
     background-color: #000;
     margin: 0;
-    overflow: hidden; /* Prevent page-level scrolling */
+    overflow: hidden;
     display: flex;
     align-items: center;
     font-family: 'HindSiliguri-Regular', sans-serif;
@@ -98,15 +98,14 @@ h3 {
     }
 }
 
-/* Left container: Scrollable */
 .container_info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    width: 50%; /* Adjust as needed for layout balance */
-    height: 500vh; /* Matches viewport height */
-    overflow-y: hidden; /* Allows independent scrolling */
+    width: 50%; 
+    height: 500vh; 
+    overflow-y: hidden;
     box-sizing: border-box;
 }
 
@@ -150,7 +149,6 @@ h3 {
     gap: 10px;
 }
 
-/* Right container: Fixed */
 .container_right {
     display: flex;
     justify-content: space-between;
@@ -161,28 +159,36 @@ h3 {
     top: 0;
 }
 .container_globe {
-    width: 100%; /*960px*/
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: sticky; /* Ensures fixed position relative to viewport */
-    top: 0; /* Fixes it to the top of the viewport */
-    height: 100%; /* Matches viewport height */
- /* No scrolling here */
+    position: sticky;
+    top: 0;
+    height: 100%;
 }
 
 .container_animation {
-    width: 90%; /*864px*/
-    height: 90%; /*864px*/
+    width: 90%;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url('../assets/images/detailed_globe.png');
     background-repeat: no-repeat;
-    background-size: 80% auto; /*768px*/
+    background-size: 80% auto;
     background-position: center;
 }
+.source_container {
+    text-decoration: none;
+    color: rgb(37, 37, 193);
+    transition: color 0.3s ease;
+}
+.source_container:hover {
+    color: #00cadc;
+  }
+
 .navigation_arrow_up {
     width: 100px;
     height: auto;
@@ -197,7 +203,7 @@ h3 {
 }
 
 .dots-wrapper {
-    --wrapper-width: 100%; /* This is initially set but will be dynamically updated */
+    --wrapper-width: 100%;
     width: var(--wrapper-width);
     height: var(--wrapper-width);
     display: flex;
@@ -214,18 +220,17 @@ h3 {
     animation: orbitLow 25s infinite ease-in-out;
 }
 
-/* Updated keyframes with the dynamic variable */
 @keyframes orbitLow {
     0% {
         opacity: 0;
-        transform: translateX(0) translateY(var(--start-y)); /* Use translateX with dynamic value */
+        transform: translateX(0) translateY(var(--start-y));
     }
     25% {
         opacity: 100%;
     }
     50% {
         opacity: 0;
-        transform: translateX(var(--wrapper-width)) translateY(var(--end-y)); /* Use dynamic wrapper width */
+        transform: translateX(var(--wrapper-width)) translateY(var(--end-y));
     }
     100% {
         opacity: 0;
