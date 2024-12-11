@@ -60,23 +60,23 @@ h3 {
     }
     .container_right {
         order: -1;
-        height: 50vh !important;
+        height: 40vh !important;
         width: 100% !important;
         flex-shrink: 0;
     }
     .section_info {
-        height: 50vh !important;
+        height: 60vh !important;
         width: auto !important;
         flex-shrink: 0 !important;
     }
     .container_info {
         width: 100% !important;
         flex-shrink: 0 !important;
-        height: 50vh !important;
+        height: 60vh !important;
 
     }
     .container_diagramme {
-        height: auto !important;
+        height: 100% !important;
         width: auto !important;
     }
     .section_content {
@@ -87,10 +87,14 @@ h3 {
         font-size: 30px !important;
     } 
     .container_globe {
-        height: 50vh;
+        height: 40vh;
     }
     h2 {
         font-size: 20px !important;
+    }
+    .zunahme_text_container {
+        font-size: 10px !important;
+        color: transparent;
     }
 }
 
