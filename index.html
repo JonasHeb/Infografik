@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/styles.css" rel="stylesheet">
     <script src="assets/app.js" defer></script>
-    <title>Die Vermüllung des Weltraums</title>
+    <title>Weltraumschrott und Objekte im Orbit</title>
 </head>
 <body>
     <div class="grid_container">
         <div class="container_info">
             <div class="section_info" id="section_1">
                 <div class="section_content">
-                    <div style="display: flex; height: 100%; justify-content: center;">
-                        <h1>Überbblick über Art und Menge von Weltraumschrott und Objekten im Orbit</h1>
+                    <div style="display: flex; height: 100%; justify-content: center; align-items: center;">
+                        <h1>Überblick über Weltraumschrott und Objekte im Orbit</h1>
                     </div>
                 </div>
                 <a class="navigation_arrows" href="#section_2">
@@ -59,9 +59,15 @@
                 <a class="navigation_arrows" href="#section_3">
                     <img class="navigation_arrow_up" src="assets/SVG/arrows.svg" alt="Navigation_Arrow">
                 </a>
-                <h2>Zunahme der verfolgbaren Objekte im Orbit</h2>
-                    <div class="container_diagramme">
-                        <img class="img_diagram" src="assets/SVG/Diagram_Zunahme_Objekte.svg" alt="Diagram Zunahme_Objekte">
+                <div class="section_content">
+                    <h2>Zunahme der verfolgbaren Objekte im Orbit</h2>
+                        <div class="container_diagramme" style="flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 20px">
+                            <p>In den letzten Jahre hat die Zahl der erfassten Objekte im Orbit stark zugenommen. Das liegt vor allem am Aufbau der Starlink Konstellation
+                                 von Elon Musk's SpaceX, welche mittlerweile fast 7000 Satelliten umfasst. Im Diagram lässt sich außerdem die Sprunghafte Zunahme von 
+                                 Objekten nach Kollisionen erkennen.
+                            </p>
+                            <img class="img_diagram" src="assets/SVG/Diagram_Zunahme_Objekte.svg" alt="Diagram Zunahme_Objekte">
+                        </div>
                     </div>
                 <a class="navigation_arrows" href="#section_5">
                     <img class="navigation_arrow_down" src="assets/SVG/arrows.svg" alt="Navigation_Arrow">
@@ -73,10 +79,24 @@
                 </a>
                 <div class="section_content">
                     <h2>Gefahren des Weltraumschrottes</h2>
-                    <div class="container_diagramme" style="color: #fff;">
-                        Das Kessler-Syndrom beschreibt ein Szenario, bei dem die Menge an Weltraumschrott in der Erdumlaufbahn so groß wird, dass eine Kettenreaktion ausgelöst wird: Kollisionen zwischen Trümmerteilen erzeugen immer mehr Schrott. Dies erhöht die Wahrscheinlichkeit weiterer Kollisionen und kann dazu führen, dass bestimmte Umlaufbahnen unbenutzbar werden.
-
-Dieses Konzept wurde 1978 von Donald J. Kessler beschrieben und stellt eine große Gefahr für Satelliten, Raumstationen und zukünftige Weltraummissionen dar. Ein solches Szenario könnte die Nutzung des Weltraums für Jahrzehnte erheblich einschränken.
+                    <div class="container_diagramme" style="color: #fff">
+                        <div style="display: flex; flex-direction: column; gap: 50px;">
+                            <div style="display: flex; flex-direction: column">
+                                <h3>Das Kessler Syndrom</h3>
+                                Das Kessler-Syndrom beschreibt ein Szenario, bei dem die Menge an Weltraumschrott in der Erdumlaufbahn so groß wird,
+                                dass eine Kettenreaktion ausgelöst wird: Kollisionen zwischen Trümmerteilen erzeugen immer mehr Schrott.
+                                Dies erhöht die Wahrscheinlichkeit weiterer Kollisionen und kann dazu führen, dass bestimmte Umlaufbahnen unbenutzbar werden.
+                                Dieses Konzept wurde 1978 von Donald J. Kessler beschrieben und stellt eine große Gefahr für Satelliten, Raumstationen und zukünftige Weltraummissionen dar.
+                                Ein solches Szenario könnte die Nutzung des Weltraums für Jahrzehnte erheblich einschränken.
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <h3>Gefahr für die Raumfahrt</h3>
+                                Weltraumschrott, bestehend aus alten Satelliten, Raketenteilen und Trümmern von Kollisionen, stellt eine wachsende Gefahr für die Raumfahrt dar.
+                                Mit Geschwindigkeiten von bis zu 28.000 km/h können selbst kleine Objekte wie Farbpartikel immense Schäden an Raumfahrzeugen und Satelliten verursachen. 
+                                Bereits jetzt müssen Satelliten und auch die Internationale Raumstationen regelmäßig Ausweichmanöver unternehmen um mögliche Kollisionen vorzubeugen.
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

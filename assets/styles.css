@@ -17,6 +17,7 @@ body {
     display: flex;
     align-items: center;
     font-family: 'HindSiliguri-Regular', sans-serif;
+    color: #fff;
 
 }
 h1 {
@@ -51,11 +52,10 @@ h3 {
     box-sizing: border-box;
     overflow: hidden;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
     .grid_container {
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-start;
         padding: 0px 10px;
     }
     .container_right {
@@ -65,16 +65,31 @@ h3 {
         flex-shrink: 0;
     }
     .section_info {
-        height: 50vh;
+        height: 50vh !important;
+        width: auto !important;
     }
     .container_info {
         width: 100% !important;
         flex-shrink: 0 !important;
-        height: 300vh !important;
+        height: 50% !important;
 
     }
+    .container_diagramme {
+        height: 100% !important;
+        width: auto !important;
+    }
     .section_content {
-        height: auto !important;
+        height: 100% !important;
+        width: auto !important;
+    }
+    h1 {
+        font-size: 50px !important;
+    }
+    .container_globe {
+        height: 50%;
+    }
+    h2 {
+        font-size: 20px !important;
     }
 }
 
